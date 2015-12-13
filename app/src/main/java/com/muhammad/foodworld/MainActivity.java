@@ -1,6 +1,8 @@
 package com.muhammad.foodworld;
 
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +19,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MediaPlayer mMediaPlayer = new MediaPlayer();
+        mMediaPlayer = MediaPlayer.create(this, R.raw.welcome);
+        mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mMediaPlayer.start();
     }
 
     @Override
@@ -31,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
             Intent sw = new Intent (MainActivity.this, StopWatch.class);
             startActivity(sw);
         }
+
+
     }
 
     @Override
